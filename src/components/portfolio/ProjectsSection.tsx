@@ -47,7 +47,7 @@ const ProjectsSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="border border-terminal-foreground/20 rounded-lg p-4 space-y-3 hover:border-primary transition-colors"
+              className="border border-terminal-foreground/20 rounded-lg p-4 space-y-3 hover:border-primary transition-all duration-300 hover:rotate-1 hover:scale-[1.02]"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>

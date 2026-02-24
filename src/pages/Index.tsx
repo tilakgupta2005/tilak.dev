@@ -10,18 +10,28 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <main className="max-w-4xl mx-auto px-4 md:px-8 space-y-16 pb-8">
-        <HeroSection />
-        <section id="stack">
-          <TechStack />
+      <main>
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <HeroSection />
+        </div>
+        <section id="stack" className="bg-card/80 backdrop-blur-sm py-16 mt-16" style={{ backgroundImage: 'none' }}>
+          <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <TechStack />
+          </div>
         </section>
-        <section id="projects">
-          <ProjectsSection />
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
+          <section id="projects">
+            <ProjectsSection />
+          </section>
+        </div>
+        <section id="blog" className="bg-muted/60 backdrop-blur-sm py-16" style={{ backgroundImage: 'none' }}>
+          <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <BlogSection />
+          </div>
         </section>
-        <section id="blog">
-          <BlogSection />
-        </section>
-        <ContactSection />
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

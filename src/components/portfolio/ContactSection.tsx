@@ -91,7 +91,7 @@ const ContactSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-card rounded-lg hover:bg-muted transition-colors"
+                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-card rounded-lg hover:bg-muted hover:rotate-2 hover:scale-105 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                   <span className="font-mono text-sm">{social.label}</span>

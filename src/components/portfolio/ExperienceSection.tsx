@@ -4,7 +4,7 @@ import WindowFrame from "./WindowFrame";
 const experiences = [
   {
     role: "Software Engineer Intern",
-    company: "Acme Corp",
+    company: "World Auto Forum",
     period: "Jun 2024 – Aug 2024",
     description: "Built internal tools and APIs using FastAPI and Python.",
   },

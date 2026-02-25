@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 import WindowFrame from "./WindowFrame";
 
 const stack = [
-  { category: "frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-  { category: "backend", items: ["Node.js", "Python", "PostgreSQL", "Redis"] },
-  { category: "tools", items: ["Git", "Docker", "AWS", "Figma"] },
+  { category: "programming", items: ["Python", "Java", "C", "C++"] },
+  { category: "web_&_backend", items: ["HTML5", "CSS3", "JavaScript", "FastAPI"] },
+  { category: "ai_ml", items: ["Machine Learning", "RAG", "Whisper", "Prompt Engineering"] },
+  { category: "cloud", items: ["AWS", "Oracle Cloud Infrastructure"] },
+  { category: "tools", items: ["Git", "GitHub", "n8n", "FFmpeg", "Gemini API", "Twilio"] },
 ];
 
 const TechStack = () => {

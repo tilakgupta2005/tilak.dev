@@ -11,7 +11,7 @@ const WindowFrame = ({ title, children, className = "", variant = "default" }: W
   const isTerminal = variant === "terminal";
 
   return (
-    <div className={`window-border overflow-hidden ${className}`}>
+    <div className={`window-border overflow-hidden messy ${className}`}>
       {/* Title bar */}
       <div className={`flex items-center gap-2 px-4 py-2 border-b-[3px] border-foreground ${isTerminal ? "bg-terminal" : "bg-muted"}`}>
         <div className="flex gap-1.5">

@@ -145,4 +145,33 @@
     content: '$ ';
     @apply text-primary font-mono;
   }
+
+  .messy {
+    @apply transition-transform duration-300 ease-out;
+    transform: rotate(-1.5deg);
+  }
+  .messy:hover {
+    transform: rotate(0deg) !important;
+  }
+  .messy-alt {
+    @apply transition-transform duration-300 ease-out;
+    transform: rotate(1.8deg);
+  }
+  .messy-alt:hover {
+    transform: rotate(0deg) !important;
+  }
+  .messy-sm {
+    @apply transition-transform duration-300 ease-out;
+    transform: rotate(-0.8deg);
+  }
+  .messy-sm:hover {
+    transform: rotate(0deg) !important;
+  }
+  .messy-sm-alt {
+    @apply transition-transform duration-300 ease-out;
+    transform: rotate(1deg);
+  }
+  .messy-sm-alt:hover {
+    transform: rotate(0deg) !important;
+  }
 }

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Twitter, Youtube, Instagram, MessageCircle } from "lucide-react";
 import WindowFrame from "./WindowFrame";
 import { useState } from "react";
 
@@ -7,6 +7,9 @@ const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com" },
   { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
   { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
+  { icon: Youtube, label: "YouTube", href: "https://youtube.com" },
+  { icon: Instagram, label: "Instagram", href: "https://instagram.com" },
+  { icon: MessageCircle, label: "Discord", href: "https://discord.com" },
   { icon: Mail, label: "Email", href: "mailto:hello@mann.dev" },
 ];
 

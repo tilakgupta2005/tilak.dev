@@ -8,8 +8,8 @@ const HeroSection = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="space-y-6"
-      >
+        className="space-y-6">
+
         {/* Status badge */}
         <div className="flex items-center gap-2">
           <span className="tag-pill bg-primary text-primary-foreground">
@@ -24,8 +24,8 @@ const HeroSection = () => {
         {/* Main heading */}
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9]">
           Hi, I'm{" "}
-          <span className="relative inline-block">
-            Mann
+          <span className="relative inline-block">Tilak
+
             <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
               <path d="M2 8C50 2 150 2 198 8" stroke="hsl(var(--primary))" strokeWidth="4" strokeLinecap="round" />
             </svg>
@@ -50,23 +50,23 @@ const HeroSection = () => {
         <div className="flex flex-wrap gap-4 pt-4">
           <a
             href="#contact"
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg"
-          >
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg">
+
             <Mail className="w-5 h-5" />
             Get in touch
           </a>
           <a
             href="/resume.pdf"
             download
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg"
-          >
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg">
+
             <Download className="w-5 h-5" />
             Download CV
           </a>
         </div>
       </motion.div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;

@@ -12,11 +12,11 @@ const HeroSection = () => {
 
         {/* Status badge */}
         <div className="flex items-center gap-2">
-          <span className="tag-pill bg-primary text-primary-foreground">
+          <span className="tag-pill bg-primary text-primary-foreground messy-sm">
             <span className="w-2 h-2 rounded-full bg-primary-foreground mr-2 animate-blink" />
             status: shipping_fast
           </span>
-          <span className="tag-pill bg-highlight text-highlight-foreground">
+          <span className="tag-pill bg-highlight text-highlight-foreground messy-sm-alt">
             open to work
           </span>
         </div>
@@ -50,7 +50,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap gap-4 pt-4">
           <a
             href="#contact"
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg">
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg messy-sm">
 
             <Mail className="w-5 h-5" />
             Get in touch
@@ -58,7 +58,7 @@ const HeroSection = () => {
           <a
             href="/resume.pdf"
             download
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg">
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg messy-sm-alt">
 
             <Download className="w-5 h-5" />
             Download CV

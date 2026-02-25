@@ -52,7 +52,7 @@ const BlogSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="window-border-sm p-5 bg-card hover:translate-x-1 hover:-translate-y-1 hover:-rotate-1 hover:scale-[1.01] transition-all duration-300 cursor-pointer group"
+              className={`window-border-sm p-5 bg-card hover:translate-x-1 hover:-translate-y-1 transition-all duration-300 cursor-pointer group ${i % 2 === 0 ? 'messy' : 'messy-alt'}`}
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
                 <div className="space-y-2 flex-1">

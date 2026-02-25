@@ -85,7 +85,7 @@ const ContactSection = () => {
 
         {/* Socials */}
         <div className="space-y-4">
-          <div className="window-border-sm bg-secondary border-secondary-foreground p-6 space-y-4">
+          <div className="window-border-sm bg-secondary border-secondary-foreground p-6 space-y-4 messy-alt">
             <h3 className="font-bold text-lg tracking-tight text-secondary-foreground">Find me elsewhere</h3>
             <div className="grid grid-cols-2 gap-3">
               {socials.map((social) => (
@@ -94,7 +94,7 @@ const ContactSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-terminal text-terminal-foreground border-secondary-foreground rounded-lg hover:bg-muted hover:text-foreground hover:rotate-2 hover:scale-105 transition-all duration-300"
+                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-terminal text-terminal-foreground border-secondary-foreground rounded-lg hover:bg-muted hover:text-foreground transition-all duration-300 messy-sm"
                 >
                   <social.icon className="w-5 h-5" />
                   <span className="font-mono text-sm">{social.label}</span>
@@ -103,7 +103,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="window-border-sm bg-terminal border-secondary-foreground p-6">
+          <div className="window-border-sm bg-terminal border-secondary-foreground p-6 messy-sm-alt">
             <div className="font-mono text-sm space-y-2">
               <div className="text-terminal-foreground/60">{"// availability"}</div>
               <div className="flex items-center gap-2">

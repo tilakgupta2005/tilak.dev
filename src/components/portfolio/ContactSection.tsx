@@ -32,7 +32,7 @@ const ContactSection = () => {
       transition={{ duration: 0.5 }}
       className="space-y-6"
     >
-      <h2 className="text-3xl md:text-4xl font-black tracking-tighter">
+      <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-secondary-foreground">
         contact<span className="text-primary">.</span>
       </h2>
 
@@ -85,8 +85,8 @@ const ContactSection = () => {
 
         {/* Socials */}
         <div className="space-y-4">
-          <div className="window-border-sm bg-card p-6 space-y-4">
-            <h3 className="font-bold text-lg tracking-tight">Find me elsewhere</h3>
+          <div className="window-border-sm bg-secondary border-secondary-foreground p-6 space-y-4">
+            <h3 className="font-bold text-lg tracking-tight text-secondary-foreground">Find me elsewhere</h3>
             <div className="grid grid-cols-2 gap-3">
               {socials.map((social) => (
                 <a
@@ -94,7 +94,7 @@ const ContactSection = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-card rounded-lg hover:bg-muted hover:rotate-2 hover:scale-105 transition-all duration-300"
+                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-terminal text-terminal-foreground border-secondary-foreground rounded-lg hover:bg-muted hover:text-foreground hover:rotate-2 hover:scale-105 transition-all duration-300"
                 >
                   <social.icon className="w-5 h-5" />
                   <span className="font-mono text-sm">{social.label}</span>
@@ -103,14 +103,14 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="window-border-sm bg-card p-6">
+          <div className="window-border-sm bg-terminal border-secondary-foreground p-6">
             <div className="font-mono text-sm space-y-2">
-              <div className="text-muted-foreground">{"// availability"}</div>
+              <div className="text-terminal-foreground/60">{"// availability"}</div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-                <span className="font-bold">Currently available for freelance</span>
+                <span className="font-bold text-secondary-foreground">Currently available for freelance</span>
               </div>
-              <p className="text-muted-foreground text-xs">
+              <p className="text-terminal-foreground/70 text-xs">
                 Response time: usually within 24h
               </p>
             </div>

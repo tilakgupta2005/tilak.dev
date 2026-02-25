@@ -1,6 +1,7 @@
 import Navbar from "@/components/portfolio/Navbar";
 import HeroSection from "@/components/portfolio/HeroSection";
 import TechStack from "@/components/portfolio/TechStack";
+import ExperienceSection from "@/components/portfolio/ExperienceSection";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import BlogSection from "@/components/portfolio/BlogSection";
 import ContactSection from "@/components/portfolio/ContactSection";
@@ -19,6 +20,11 @@ const Index = () => {
             <TechStack />
           </div>
         </section>
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
+          <section id="experience">
+            <ExperienceSection />
+          </section>
+        </div>
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
           <section id="projects">
             <ProjectsSection />

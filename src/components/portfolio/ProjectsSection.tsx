@@ -4,24 +4,29 @@ import WindowFrame from "./WindowFrame";
 
 const projects = [
   {
+    name: "Autopostix.ai",
+    description: "AI video automation platform that converts long YouTube videos into short-form reels for Instagram, YouTube Shorts, and TikTok.",
+    tags: ["Python", "FastAPI", "FFmpeg", "Whisper", "Gemini API"],
+    link: "#",
+    github: "https://github.com/tilakgupta2005/Autopostix.ai",
+  },
+  {
     name: "AI Voice Assistant for FinCov",
-    description: "Real-time cloud infrastructure monitoring dashboard",
-    tags: ["React", "TypeScript", "WebSocket"],
+    description: "Real-time AI voice assistant with RAG for accurate, context-aware responses. Sponsored by IBOTIX Pvt. Ltd.",
+    tags: ["Python", "FastAPI", "RAG", "ML", "Twilio"],
     link: "https://demo.ibotix.ai/",
   },
   {
-    name: "ai-writer",
-    description: "AI-powered content generation tool with markdown export",
-    tags: ["Next.js", "OpenAI", "Tailwind"],
-    link: "#",
-    github: "#",
+    name: "AI Project Generator",
+    description: "Automation system that generates personalized project ideas using Gemini AI, deploys HTML pages to GitHub with zero manual intervention.",
+    tags: ["JavaScript", "Gemini API", "n8n"],
+    github: "https://github.com/tilakgupta2005/project_generator",
   },
   {
-    name: "devlog-cli",
-    description: "CLI tool for developers to log daily progress",
-    tags: ["Node.js", "CLI", "SQLite"],
-    link: "#",
-    github: "#",
+    name: "Minecraft Voice Control Mod",
+    description: "Voice-controlled gameplay system with multilingual support (English, Hindi, Hinglish) as a Fabric-based Minecraft mod.",
+    tags: ["Java", "CMU Sphinx", "Fabric API"],
+    github: "https://github.com/tilakgupta2005/SpeechControlsGame",
   },
 ];
 

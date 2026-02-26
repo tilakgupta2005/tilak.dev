@@ -5,8 +5,7 @@ const stack = [
   { category: "programming", items: ["Python", "Java", "C", "C++"] },
   { category: "web_&_backend", items: ["HTML5", "CSS3", "JavaScript", "FastAPI"] },
   { category: "ai_ml", items: ["Machine Learning", "RAG", "Whisper", "Prompt Engineering"] },
-  { category: "cloud", items: ["AWS", "Oracle Cloud Infrastructure"] },
-  { category: "tools", items: ["Git", "GitHub", "n8n", "FFmpeg", "Gemini API", "Twilio"] },
+  { category: "tools", items: ["Git", "GitHub", "n8n", "FFmpeg", "Gemini API"] },
 ];
 
 const TechStack = () => {

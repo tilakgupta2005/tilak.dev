@@ -3,18 +3,23 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/retro-terminal-portfolio/",
-  
+
   server: {
-    host: "::",
+    host: true,
     port: 8080,
+    strictPort: true,
+    allowedHosts: true, // ✅ THIS is the key fix
     hmr: {
-      overlay: false,
+      clientPort: 443, // important for ngrok https
     },
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+
+  plugins: [
+    react(),
+    mode === "development" && componentTagger()
+  ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

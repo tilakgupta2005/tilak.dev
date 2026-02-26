@@ -4,11 +4,10 @@ import WindowFrame from "./WindowFrame";
 
 const projects = [
   {
-    name: "cloud-dash",
+    name: "AI Voice Assistant for FinCov",
     description: "Real-time cloud infrastructure monitoring dashboard",
     tags: ["React", "TypeScript", "WebSocket"],
-    link: "#",
-    github: "#",
+    link: "https://demo.ibotix.ai/",
   },
   {
     name: "ai-writer",

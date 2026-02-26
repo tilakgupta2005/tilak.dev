@@ -3,28 +3,27 @@ import WindowFrame from "./WindowFrame";
 
 const experiences = [
   {
-    role: "Software Engineer Intern",
+    role: "Creative Design & Video Editing Intern ",
     company: "World Auto Forum",
-    period: "Jun 2024 – Aug 2024",
-    description: "Built internal tools and APIs using FastAPI and Python.",
+    period: "Nov 2025 – Dec 2025",
+    description: "Designed digital creatives related to automobile ratings, industry insights, and edited promotional videos for events such as IVASS to support marketing and outreach activities.",
   },
   {
     role: "Open Source Contributor",
-    company: "Various Projects",
-    period: "2023 – Present",
-    description: "Contributed to ML tooling and developer infrastructure projects.",
+    company: "IBOTIX PVT. LTD.",
+    period: "Jul 2025 – Sep 2025",
+    description: "Built a real-time AI voice assistant enabling natural voice interaction with a language model.",
   },
 ];
 
 const hackathons = [
   {
-    name: "HackTheNorth 2024",
-    result: "🏆 Winner",
-    project: "AI-powered meeting summarizer using Whisper + RAG pipeline.",
+    name: "Smart India Hackathon 2025",
+    result: "🏆 Internal Finalist",
+    project: "AI-powered mobile application & chatbot that provides farmers with personalized crop advisory, weather forecasts, and marketplace access.",
   },
   {
-    name: "MLH Global Hack 2023",
-    result: "🥈 Runner-up",
+    name: "Samadhan 2.0",
     project: "Real-time sign language translator with computer vision.",
   },
   {

@@ -4,13 +4,13 @@ import WindowFrame from "./WindowFrame";
 import { useState } from "react";
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Youtube, label: "YouTube", href: "https://youtube.com" },
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com" },
-  { icon: MessageCircle, label: "Discord", href: "https://discord.com" },
-  { icon: Mail, label: "Email", href: "mailto:hello@mann.dev" },
+  { icon: Github, label: "GitHub", href: "https://github.com/tilakgupta2005" },
+  //{ icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/tilakgupta2005" },
+  { icon: Youtube, label: "YouTube", href: "https://www.youtube.com/channel/UCd0K3J64pA78s3WN53q74RA" },
+  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/tilakgupta2005" },
+  { icon: MessageCircle, label: "Discord", href: "https://discord.com/invite/nvQvAyqsZw" },
+  { icon: Mail, label: "Email", href: "mailto:tilakgupta2005@gmail.com" },
 ];
 
 const ContactSection = () => {
@@ -108,7 +108,7 @@ const ContactSection = () => {
               <div className="text-terminal-foreground/60">{"// availability"}</div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-                <span className="font-bold text-secondary-foreground">Currently available for freelance</span>
+                <span className="font-bold text-secondary-foreground">Currently available for freelance, full-time, part-time, contract roles</span>
               </div>
               <p className="text-terminal-foreground/70 text-xs">
                 Response time: usually within 24h

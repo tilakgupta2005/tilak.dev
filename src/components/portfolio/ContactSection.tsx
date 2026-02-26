@@ -85,19 +85,19 @@ const ContactSection = () => {
 
         {/* Socials */}
         <div className="space-y-4">
-          <div className="window-border-sm bg-secondary border-secondary-foreground p-6 space-y-4 messy-alt">
+          <div className="window-border-sm bg-primary/20 border-primary p-6 space-y-4 messy-alt">
             <h3 className="font-bold text-lg tracking-tight text-secondary-foreground">Find me elsewhere</h3>
             <div className="grid grid-cols-2 gap-3">
-              {socials.map((social) => (
+              {socials.map((social, i) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-brutal flex items-center gap-3 px-4 py-3 bg-terminal text-terminal-foreground border-secondary-foreground rounded-lg hover:bg-muted hover:text-foreground transition-all duration-300 messy-sm"
+                  className={`btn-brutal flex items-center gap-3 px-4 py-3 bg-highlight text-highlight-foreground border-secondary-foreground rounded-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 ${i % 2 === 0 ? 'messy-sm' : 'messy-sm-alt'}`}
                 >
                   <social.icon className="w-5 h-5" />
-                  <span className="font-mono text-sm">{social.label}</span>
+                  <span className="font-mono text-sm font-bold">{social.label}</span>
                 </a>
               ))}
             </div>

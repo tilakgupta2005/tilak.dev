@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Youtube } from "lucide-react";
+import { Instagram, Youtube, Linkedin } from "lucide-react";
 
 const quests = [
   {
@@ -17,6 +17,14 @@ const quests = [
     handle: "Tilak",
     href: "https://www.youtube.com/channel/UCd0K3J64pA78s3WN53q74RA",
     color: "bg-destructive",
+  },
+  {
+    icon: Linkedin,
+    platform: "LinkedIn",
+    stat: "500+ connections",
+    handle: "tilakgupta2005",
+    href: "https://www.linkedin.com/in/tilakgupta2005",
+    color: "bg-[hsl(210,80%,55%)]",
   },
 ];
 
@@ -43,7 +51,7 @@ const SideQuestsSection = () => {
       </div>
 
       {/* Cards */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {quests.map((q, i) => (
           <motion.a
             key={q.platform}

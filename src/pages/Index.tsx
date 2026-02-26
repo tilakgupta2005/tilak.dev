@@ -35,11 +35,11 @@ const Index = () => {
             <BlogSection />
           </div>
         </section>
-        <section id="contact" className="bg-secondary py-16 mt-8" style={{
+        <section id="contact" className="bg-secondary py-16 mt-8 pb-0" style={{
           backgroundImage: 'linear-gradient(hsl(var(--secondary-foreground) / 0.08) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary-foreground) / 0.08) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
         }}>
-          <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="max-w-4xl mx-auto px-4 md:px-8 pb-16">
             <ContactSection />
           </div>
         </section>

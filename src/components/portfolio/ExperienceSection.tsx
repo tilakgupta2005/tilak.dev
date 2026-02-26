@@ -49,7 +49,7 @@ const ExperienceSection = () => {
           {experiences.map((exp, i) => (
             <div
               key={i}
-              className={`pl-4 border-l-[3px] border-primary space-y-1 transition-transform duration-200 ${i % 2 === 0 ? 'messy-sm' : 'messy-sm-alt'}`}
+              className={`pl-4 border-l-[3px] border-primary space-y-1 transition-transform duration-200 ${i % 2 === 0 ? 'messy-sm-alt' : 'messy-sm'}`}
             >
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-foreground font-bold">{exp.role}</span>
@@ -72,7 +72,7 @@ const ExperienceSection = () => {
           {hackathons.map((h, i) => (
             <div
               key={i}
-              className={`pl-4 space-y-1 transition-transform duration-200 ${i % 2 === 0 ? 'messy-sm' : 'messy-sm-alt'}`}
+              className={`pl-4 space-y-1 transition-transform duration-200 ${i % 2 === 0 ? 'messy-alt' : 'messy'}`}
             >
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-highlight font-bold">{h.name}</span>

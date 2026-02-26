@@ -3,6 +3,7 @@ import HeroSection from "@/components/portfolio/HeroSection";
 import TechStack from "@/components/portfolio/TechStack";
 import ExperienceSection from "@/components/portfolio/ExperienceSection";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
+import SideQuestsSection from "@/components/portfolio/SideQuestsSection";
 import BlogSection from "@/components/portfolio/BlogSection";
 import LeadershipSection from "@/components/portfolio/LeadershipSection";
 import ContactSection from "@/components/portfolio/ContactSection";
@@ -31,7 +32,12 @@ const Index = () => {
             <ProjectsSection />
           </section>
         </div>
-        <section id="blog" className="bg-muted/60 backdrop-blur-sm py-16" style={{ backgroundImage: 'none' }}>
+        <section id="sidequests" className="bg-muted/60 backdrop-blur-sm py-16" style={{ backgroundImage: 'none' }}>
+          <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <SideQuestsSection />
+          </div>
+        </section>
+        <section id="blog" className="py-16">
           <div className="max-w-4xl mx-auto px-4 md:px-8">
             <BlogSection />
           </div>

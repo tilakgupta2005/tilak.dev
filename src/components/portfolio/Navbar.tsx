@@ -16,7 +16,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b-[3px] border-foreground">
       <div className="max-w-4xl mx-auto px-4 md:px-8 flex items-center justify-between h-14">
         <a href="#" className="font-black text-xl tracking-tighter">
-          mann<span className="text-primary">.</span>dev
+          tilak<span className="text-primary">.</span>dev
         </a>
 
         {/* Desktop */}

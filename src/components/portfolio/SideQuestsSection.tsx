@@ -5,7 +5,7 @@ const quests = [
   {
     icon: Instagram,
     platform: "Instagram",
-    stat: "700+ followers",
+    stat: "20+ followers",
     handle: "@tilakgupta2005",
     href: "https://www.instagram.com/tilakgupta2005",
     color: "bg-[hsl(330,80%,60%)]",
@@ -14,7 +14,7 @@ const quests = [
     icon: Youtube,
     platform: "YouTube",
     stat: "2.7K+ subs",
-    handle: "Tilak",
+    handle: " Not Tilak",
     href: "https://www.youtube.com/channel/UCd0K3J64pA78s3WN53q74RA",
     color: "bg-destructive",
   },

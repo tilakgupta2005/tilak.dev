@@ -24,12 +24,13 @@ const hackathons = [
   },
   {
     name: "Samadhan 2.0",
+    result: "🙋‍♂️ Participant",
     project: "Real-time sign language translator with computer vision.",
   },
   {
-    name: "DevPost AI Challenge",
-    result: "🏅 Top 10",
-    project: "Automated workflow builder using n8n and Gemini API.",
+    name: "Adobe Hackathon",
+    result: "🙋‍♂️ Participant",
+    project: "Comptete with lakhs of developers worldwide",
   },
 ];
 

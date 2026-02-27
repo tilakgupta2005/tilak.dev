@@ -5,7 +5,7 @@ import { ExternalLink, Github, Folder, X, Users, User, Calendar, ChevronRight } 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
 type ProjectCategory = "all" | "personal" | "client" | "opensource" | "company" | "hackathon" | "learning" | "experiments";
-type ProjectStatus = "live" | "in-progress" | "completed";
+type ProjectStatus = "live" | "in-progress" | "completed" | "planning" | "on-hold" | "dumped";
 type TeamType = "solo" | "team";
 
 interface Project {
@@ -101,6 +101,9 @@ const statusColors: Record<ProjectStatus, string> = {
   live: "bg-emerald-500",
   "in-progress": "bg-highlight",
   completed: "bg-primary",
+  planning: "bg-blue-500",
+  "on-hold": "bg-orange-500",
+  dumped: "bg-muted-foreground",
 };
 
 const messyRotations = [
@@ -174,18 +177,11 @@ const ProjectsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="border-2 border-foreground rounded-xl bg-card overflow-hidden shadow-[4px_4px_0px_hsl(var(--foreground))] hover:shadow-[6px_6px_0px_hsl(var(--foreground))] hover:-translate-y-1 transition-all duration-200 group"
+            className="border-2 border-foreground rounded-none bg-card overflow-hidden shadow-[4px_4px_0px_hsl(var(--foreground))] hover:shadow-[6px_6px_0px_hsl(var(--foreground))] hover:-translate-y-1 transition-all duration-200 group"
           >
             {/* Card Header */}
             <div className="flex items-center justify-between px-5 py-3 border-b-2 border-foreground bg-muted">
-              <div className="flex items-center gap-2">
-                <div className="flex gap-1.5">
-                  <div className="w-3 h-3 rounded-full bg-destructive border border-foreground" />
-                  <div className="w-3 h-3 rounded-full bg-highlight border border-foreground" />
-                  <div className="w-3 h-3 rounded-full bg-primary border border-foreground" />
-                </div>
-                <h3 className="font-mono font-bold text-sm truncate">{project.name}</h3>
-              </div>
+              <h3 className="font-mono font-bold text-sm truncate">{project.name}</h3>
               <span className={`flex items-center gap-1.5 text-xs font-bold text-white px-2.5 py-0.5 rounded-full border border-foreground/20 ${statusColors[project.status]}`}>
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                 {project.status}
@@ -196,23 +192,6 @@ const ProjectsSection = () => {
             <div className="px-5 py-4 space-y-3">
               <p className="text-sm font-semibold text-foreground">{project.description}</p>
               <p className="text-xs text-muted-foreground font-mono">{project.comment}</p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.slice(0, 4).map((tag) => (
-                  <span
-                    key={tag}
-                    className="tag-pill bg-muted text-foreground text-[10px]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-                {project.tags.length > 4 && (
-                  <span className="tag-pill bg-muted text-muted-foreground text-[10px]">
-                    +{project.tags.length - 4}
-                  </span>
-                )}
-              </div>
 
               {/* Footer: Links + Details */}
               <div className="flex items-center justify-between pt-2 border-t border-border">
@@ -234,10 +213,10 @@ const ProjectsSection = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 text-xs font-mono text-primary hover:underline"
+                      className="flex items-center gap-1.5 text-xs font-mono font-bold px-3 py-1.5 bg-emerald-500 text-white rounded-none border border-foreground/20 hover:bg-emerald-600 transition-colors"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-3.5 h-3.5" />
                       Live
                     </a>
                   )}
@@ -277,7 +256,7 @@ const ProjectsSection = () => {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-2xl max-h-[85vh] overflow-y-auto border-[3px] border-foreground rounded-xl bg-background shadow-[6px_6px_0px_hsl(var(--foreground))]"
+              className="w-full max-w-2xl max-h-[85vh] overflow-y-auto border-[3px] border-foreground rounded-none bg-background shadow-[6px_6px_0px_hsl(var(--foreground))]"
             >
               {/* Modal Header */}
               <div className="flex items-center justify-between px-6 py-4 border-b-[3px] border-foreground bg-muted sticky top-0 z-10">

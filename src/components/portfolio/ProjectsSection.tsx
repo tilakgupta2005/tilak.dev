@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Folder, X, Users, User, Calendar, ChevronRight } from "lucide-react";
+import { ExternalLink, Github, Folder, X, Users, User, Calendar, ChevronRight, ChevronDown } from "lucide-react";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 
@@ -250,10 +250,14 @@ const messyRotations = [
 const ProjectsSection = () => {
   const [active, setActive] = useState<ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(4);
 
   const filtered = active === "all" ? projects : projects.filter((p) => p.category === active);
-  const visible = showAll ? filtered : filtered.slice(0, 4);
+  const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
+
+  const getCategoryCount = (value: ProjectCategory) =>
+    value === "all" ? projects.length : projects.filter((p) => p.category === value).length;
 
   // Only show categories that have projects + "all"
   const availableCategories = categories.filter(
@@ -283,7 +287,7 @@ const ProjectsSection = () => {
         {availableCategories.map((cat, i) => (
           <button
             key={cat.value}
-            onClick={() => { setActive(cat.value); setShowAll(false); }}
+            onClick={() => { setActive(cat.value); setVisibleCount(4); }}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-foreground font-mono text-sm font-bold transition-all duration-300 ease-out hover:rotate-0 ${
               messyRotations[i % messyRotations.length]
             } ${
@@ -294,6 +298,7 @@ const ProjectsSection = () => {
           >
             <Folder className="w-4 h-4" />
             {cat.label}
+            <span className="ml-1 text-[10px] opacity-70">({getCategoryCount(cat.value)})</span>
           </button>
         ))}
       </div>
@@ -370,15 +375,14 @@ const ProjectsSection = () => {
         </p>
       )}
 
-      {!showAll && filtered.length > 4 && (
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={() => setShowAll(true)}
-            className="px-6 py-3 border-2 border-foreground font-mono font-bold text-sm bg-card text-foreground hover:bg-primary hover:text-primary-foreground shadow-[4px_4px_0px_hsl(var(--foreground))] hover:shadow-[6px_6px_0px_hsl(var(--foreground))] transition-all duration-200"
-          >
-            View More ({filtered.length - 4} more)
-          </button>
-        </div>
+      {hasMore && (
+        <button
+          onClick={() => setVisibleCount((prev) => prev + 4)}
+          className="flex items-center gap-1.5 mx-auto mt-8 font-mono text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer bg-transparent border-none"
+        >
+          View More ({filtered.length - visibleCount} remaining)
+          <ChevronDown className="w-4 h-4 animate-bounce" />
+        </button>
       )}
 
       {/* ── Detail Modal ───────────────────────────────────────────────────── */}

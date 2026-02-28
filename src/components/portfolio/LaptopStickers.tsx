@@ -41,19 +41,19 @@ const LaptopStickers = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="space-y-4"
+      className="space-y-8"
     >
       {/* Title */}
       <div className="text-center space-y-2">
-        <h2 className="text-3xl md:text-4xl font-mono font-bold text-foreground inline-flex items-center gap-2 justify-center">
+        <h2 className="text-4xl md:text-5xl font-black text-foreground inline-flex items-center gap-3 justify-center">
           <span>📋</span> Laptop{" "}
-          <span className="bg-primary text-primary-foreground px-2 py-0.5">Stickers</span>
+          <span className="bg-primary text-primary-foreground px-3 py-1 inline-block rotate-[-1deg] border-2 border-foreground shadow-[3px_3px_0px_hsl(var(--foreground))]">Stickers</span>
         </h2>
         <p className="font-mono text-sm text-muted-foreground">{"// where I've been & what I've done"}</p>
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap justify-center gap-4 font-mono text-xs text-muted-foreground">
+      <div className="flex flex-wrap justify-center gap-4 font-mono text-xs text-muted-foreground mb-4">
         {Object.entries(typeLabels).map(([key, val]) => (
           <span key={key} className="flex items-center gap-1">
             <span>{val.emoji}</span> {val.label}

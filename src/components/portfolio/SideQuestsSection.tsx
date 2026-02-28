@@ -21,7 +21,7 @@ const quests = [
   {
     icon: Linkedin,
     platform: "LinkedIn",
-    stat: "500+ connections",
+    stat: "700+ connections",
     handle: "tilakgupta2005",
     href: "https://www.linkedin.com/in/tilakgupta2005",
     color: "bg-[hsl(210,80%,55%)]",

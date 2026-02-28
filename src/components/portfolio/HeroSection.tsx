@@ -35,7 +35,7 @@ const HeroSection = () => {
 
         {/* Subtitle */}
         <p className="text-lg md:text-xl max-w-xl text-muted-foreground font-mono">
-          I build things for the web that are{" "}
+          I build Solutions that are{" "}
           <span className="bg-highlight text-highlight-foreground px-2 py-0.5 rounded font-bold">
             fast
           </span>

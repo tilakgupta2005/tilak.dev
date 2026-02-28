@@ -23,14 +23,19 @@ const hackathons = [
     project: "AI-powered mobile application & chatbot that provides farmers with personalized crop advisory, weather forecasts, and marketplace access.",
   },
   {
-    name: "Samadhan 2.0",
+    name: "Samadhan 2.0 National Level Hackathon",
     result: "🙋‍♂️ Participant",
-    project: "Real-time sign language translator with computer vision.",
+    project: "Created a Study Buddy web application.",
   },
   {
     name: "Adobe Hackathon",
     result: "🙋‍♂️ Participant",
-    project: "Comptete with lakhs of developers worldwide",
+    project: "Compete with lakhs of developers worldwide",
+  },
+  {
+    name: "Samadhan 1.0 National Level Hackathon",
+    result: "🙋‍♂️ Participant",
+    project: "Created a AI powered Chatbot for Carreer Guidance.",
   },
 ];
 

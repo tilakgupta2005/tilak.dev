@@ -235,14 +235,14 @@ const statusColors: Record<ProjectStatus, string> = {
 };
 
 const messyRotations = [
-  "rotate-[-2deg]",
-  "rotate-[1.5deg]",
   "rotate-[-1deg]",
-  "rotate-[2.5deg]",
-  "rotate-[-1.8deg]",
+  "rotate-[0.8deg]",
+  "rotate-[-0.6deg]",
   "rotate-[1deg]",
-  "rotate-[-2.2deg]",
-  "rotate-[1.8deg]",
+  "rotate-[-0.8deg]",
+  "rotate-[0.6deg]",
+  "rotate-[-1deg]",
+  "rotate-[0.8deg]",
 ];
 
 // ── Component ──────────────────────────────────────────────────────────────────
@@ -250,8 +250,10 @@ const messyRotations = [
 const ProjectsSection = () => {
   const [active, setActive] = useState<ProjectCategory>("all");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [showAll, setShowAll] = useState(false);
 
   const filtered = active === "all" ? projects : projects.filter((p) => p.category === active);
+  const visible = showAll ? filtered : filtered.slice(0, 4);
 
   // Only show categories that have projects + "all"
   const availableCategories = categories.filter(
@@ -281,7 +283,7 @@ const ProjectsSection = () => {
         {availableCategories.map((cat, i) => (
           <button
             key={cat.value}
-            onClick={() => setActive(cat.value)}
+            onClick={() => { setActive(cat.value); setShowAll(false); }}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg border-2 border-foreground font-mono text-sm font-bold transition-all duration-300 ease-out hover:rotate-0 ${
               messyRotations[i % messyRotations.length]
             } ${
@@ -298,7 +300,7 @@ const ProjectsSection = () => {
 
       {/* Project Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {filtered.map((project, i) => (
+        {visible.map((project, i) => (
           <motion.div
             key={project.name}
             initial={{ opacity: 0, y: 15 }}
@@ -366,6 +368,17 @@ const ProjectsSection = () => {
         <p className="text-center text-muted-foreground font-mono text-sm py-12">
           {"// No projects in this category yet"}
         </p>
+      )}
+
+      {!showAll && filtered.length > 4 && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setShowAll(true)}
+            className="px-6 py-3 border-2 border-foreground font-mono font-bold text-sm bg-card text-foreground hover:bg-primary hover:text-primary-foreground shadow-[4px_4px_0px_hsl(var(--foreground))] hover:shadow-[6px_6px_0px_hsl(var(--foreground))] transition-all duration-200"
+          >
+            View More ({filtered.length - 4} more)
+          </button>
+        </div>
       )}
 
       {/* ── Detail Modal ───────────────────────────────────────────────────── */}

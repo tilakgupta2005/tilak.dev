@@ -2,6 +2,7 @@ import Navbar from "@/components/portfolio/Navbar";
 import HeroSection from "@/components/portfolio/HeroSection";
 import TechStack from "@/components/portfolio/TechStack";
 import ExperienceSection from "@/components/portfolio/ExperienceSection";
+import LaptopStickers from "@/components/portfolio/LaptopStickers";
 import ProjectsSection from "@/components/portfolio/ProjectsSection";
 import SideQuestsSection from "@/components/portfolio/SideQuestsSection";
 import BlogSection from "@/components/portfolio/BlogSection";
@@ -27,6 +28,11 @@ const Index = () => {
             <ExperienceSection />
           </section>
         </div>
+        <section className="bg-card/80 backdrop-blur-sm py-16" style={{ backgroundImage: 'none' }}>
+          <div className="max-w-4xl mx-auto px-4 md:px-8">
+            <LaptopStickers />
+          </div>
+        </section>
         <div className="max-w-4xl mx-auto px-4 md:px-8 py-16">
           <section id="projects">
             <ProjectsSection />

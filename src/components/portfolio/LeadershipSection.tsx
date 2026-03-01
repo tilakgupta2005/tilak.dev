@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Users, Award, Gamepad2, ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import WindowFrame from "./WindowFrame";
 
 const leadership = [
@@ -10,64 +11,82 @@ const leadership = [
     org: "Corporate Crew",
     description: "Led and coordinated campus placement drives impacting 1300+ students.",
     icon: Users,
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [
+      { src: "/placeholder.svg", caption: "Corporate Crew — Placement Drive" },
+      { src: "/placeholder.svg", caption: "Corporate Crew — Team Meeting" },
+      { src: "/placeholder.svg", caption: "Corporate Crew — Event Day" },
+    ],
   },
   {
     role: "Microsoft Learn Student Ambassador",
     org: "MLSA",
     description: "Contributed to technical learning initiatives and community programs.",
     icon: Award,
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    images: [
+      { src: "/placeholder.svg", caption: "MLSA — Tech Workshop" },
+      { src: "/placeholder.svg", caption: "MLSA — Community Session" },
+    ],
   },
   {
     role: "Digital Lead",
     org: "GDG On Campus",
     description: "Created promotional creatives and edited videos for technical events and community activities.",
     icon: Users,
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [
+      { src: "/placeholder.svg", caption: "GDG — Event Promo" },
+      { src: "/placeholder.svg", caption: "GDG — Tech Talk" },
+      { src: "/placeholder.svg", caption: "GDG — Community Meetup" },
+    ],
   },
   {
     role: "Organizing Team",
     org: "Fiesta 2025",
     description: "Organized BGMI tournament during college fest and managed live stream operations.",
     icon: Gamepad2,
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    images: [
+      { src: "/placeholder.svg", caption: "Fiesta 2025 — BGMI Tournament" },
+      { src: "/placeholder.svg", caption: "Fiesta 2025 — Live Stream" },
+    ],
   },
 ];
 
-const ImageCarousel = ({ images }: { images: string[] }) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+interface CarouselImage {
+  src: string;
+  caption: string;
+}
+
+const ImageCarousel = ({ images }: { images: CarouselImage[] }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }),
+  ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
 
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
-  const onSelect = useCallback(() => {
+  useEffect(() => {
     if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
   }, [emblaApi]);
-
-  useState(() => {
-    if (emblaApi) emblaApi.on("select", onSelect);
-  });
 
   return (
     <div className="relative group/carousel mt-3">
       <div className="overflow-hidden rounded-md border-2 border-foreground" ref={emblaRef}>
         <div className="flex">
-          {images.map((src, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0">
+          {images.map((img, i) => (
+            <div key={i} className="flex-[0_0_100%] min-w-0 relative">
               <img
-                src={src}
-                alt={`Photo ${i + 1}`}
+                src={img.src}
+                alt={img.caption}
                 className="w-full h-32 md:h-40 object-cover"
                 loading="lazy"
               />
+              <div className="absolute top-0 left-0 right-0 bg-foreground/70 text-background font-mono text-[10px] md:text-xs px-2 py-1 truncate">
+                {img.caption}
+              </div>
             </div>
           ))}
         </div>

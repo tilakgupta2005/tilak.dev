@@ -88,7 +88,7 @@ const LaptopStickers = () => {
             ))}
           </div>
         </div>
-        <div className="mx-auto w-[110%] -ml-[5%] h-4 bg-foreground rounded-b-xl" />
+        
         <div className="absolute bottom-8 right-6 bg-card border-2 border-foreground px-2 py-1 font-mono text-[10px] text-muted-foreground rounded">
           Built with ❤️ and ☕
         </div>

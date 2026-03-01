@@ -89,9 +89,6 @@ const LaptopStickers = () => {
           </div>
         </div>
         
-        <div className="absolute bottom-8 right-6 bg-card border-2 border-foreground px-2 py-1 font-mono text-[10px] text-muted-foreground rounded">
-          Built with ❤️ and ☕
-        </div>
       </div>
     </motion.section>
   );

@@ -380,7 +380,7 @@ const ProjectsSection = () => {
           onClick={() => setVisibleCount((prev) => prev + 4)}
           className="flex items-center gap-1.5 mx-auto mt-8 font-mono text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer bg-transparent border-none"
         >
-          View More ({filtered.length - visibleCount} remaining)
+          View More
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       )}

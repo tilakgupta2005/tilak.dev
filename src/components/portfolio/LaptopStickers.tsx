@@ -19,7 +19,7 @@ const stickers: Sticker[] = [
   // Community
   { name: "Corporate Crew", role: "Student Placement Lead", color: "bg-[hsl(50,90%,82%)]", type: "community" },
   { name: "GDG On Campus", role: "Digital Lead", color: "bg-[hsl(160,50%,82%)]", type: "community" },
-  { name: "MLSA", role: "Student Ambassador", color: "bg-[hsl(220,70%,85%)]", type: "community" },
+  { name: "Microsoft Student Ambassador", role: "Campus Lead", color: "bg-[hsl(220,70%,85%)]", type: "community" },
 ];
 
 const rotations = [

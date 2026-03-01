@@ -76,7 +76,7 @@ const LaptopStickers = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07, duration: 0.3 }}
                 whileHover={{ rotate: 0, scale: 1.08 }}
-                className={`group ${sticker.color} ${rotations[i % rotations.length]} border-2 border-foreground px-4 py-2 font-mono text-sm font-bold text-foreground shadow-[3px_3px_0px_hsl(var(--foreground))] cursor-default transition-transform duration-200 relative`}
+                className={`group ${sticker.color} ${rotations[i % rotations.length]} border-2 border-foreground px-4 py-2 font-mono text-sm font-bold text-foreground shadow-[3px_3px_0px_hsl(var(--foreground))] cursor-default transition-transform duration-200 relative hover:z-20`}
               >
                 <span className="text-[10px] mr-1">{typeLabels[sticker.type].emoji}</span>
                 {sticker.name}

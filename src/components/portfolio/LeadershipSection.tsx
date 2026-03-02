@@ -11,53 +11,34 @@ const leadership = [
     org: "Corporate Crew",
     description: "Led and coordinated campus placement drives impacting 1300+ students.",
     icon: Users,
-    images: [
-      { src: "/placeholder.svg", caption: "Corporate Crew — Placement Drive" },
-      { src: "/placeholder.svg", caption: "Corporate Crew — Team Meeting" },
-      { src: "/placeholder.svg", caption: "Corporate Crew — Event Day" },
-    ],
+    image: "/placeholder.svg",
   },
   {
     role: "Microsoft Learn Student Ambassador",
     org: "MLSA",
     description: "Contributed to technical learning initiatives and community programs.",
     icon: Award,
-    images: [
-      { src: "/placeholder.svg", caption: "MLSA — Tech Workshop" },
-      { src: "/placeholder.svg", caption: "MLSA — Community Session" },
-    ],
+    image: "/placeholder.svg",
   },
   {
     role: "Digital Lead",
     org: "GDG On Campus",
     description: "Created promotional creatives and edited videos for technical events and community activities.",
     icon: Users,
-    images: [
-      { src: "/placeholder.svg", caption: "GDG — Event Promo" },
-      { src: "/placeholder.svg", caption: "GDG — Tech Talk" },
-      { src: "/placeholder.svg", caption: "GDG — Community Meetup" },
-    ],
+    image: "/placeholder.svg",
   },
   {
     role: "Organizing Team",
     org: "Fiesta 2025",
     description: "Organized BGMI tournament during college fest and managed live stream operations.",
     icon: Gamepad2,
-    images: [
-      { src: "/placeholder.svg", caption: "Fiesta 2025 — BGMI Tournament" },
-      { src: "/placeholder.svg", caption: "Fiesta 2025 — Live Stream" },
-    ],
+    image: "/placeholder.svg",
   },
 ];
 
-interface CarouselImage {
-  src: string;
-  caption: string;
-}
-
-const ImageCarousel = ({ images }: { images: CarouselImage[] }) => {
+const LeadershipSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true }),
+    Autoplay({ delay: 4000, stopOnInteraction: false, stopOnMouseEnter: true }),
   ]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -73,58 +54,6 @@ const ImageCarousel = ({ images }: { images: CarouselImage[] }) => {
   }, [emblaApi]);
 
   return (
-    <div className="relative group/carousel mt-3">
-      <div className="overflow-hidden rounded-md border-2 border-foreground" ref={emblaRef}>
-        <div className="flex">
-          {images.map((img, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0 relative">
-              <img
-                src={img.src}
-                alt={img.caption}
-                className="w-full h-32 md:h-40 object-cover"
-                loading="lazy"
-              />
-              <div className="absolute top-0 left-0 right-0 bg-foreground/70 text-background font-mono text-[10px] md:text-xs px-2 py-1 truncate">
-                {img.caption}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={scrollPrev}
-            className="absolute left-1 top-1/2 -translate-y-1/2 bg-foreground/80 text-background rounded-full p-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity"
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="w-3 h-3" />
-          </button>
-          <button
-            onClick={scrollNext}
-            className="absolute right-1 top-1/2 -translate-y-1/2 bg-foreground/80 text-background rounded-full p-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity"
-            aria-label="Next image"
-          >
-            <ChevronRight className="w-3 h-3" />
-          </button>
-          <div className="flex justify-center gap-1 mt-2">
-            {images.map((_, i) => (
-              <div
-                key={i}
-                className={`w-1.5 h-1.5 rounded-full transition-colors ${
-                  i === selectedIndex ? "bg-accent" : "bg-muted-foreground/40"
-                }`}
-              />
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  );
-};
-
-const LeadershipSection = () => {
-  return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -132,29 +61,65 @@ const LeadershipSection = () => {
       transition={{ duration: 0.5 }}
     >
       <WindowFrame title="leadership.log">
-        <div className="p-6 font-mono text-sm md:text-base space-y-6">
+        <div className="p-6 font-mono text-sm md:text-base space-y-4">
           <div className="text-muted-foreground">{"// leadership & community"}</div>
-          {leadership.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -10 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`pl-4 border-l-[3px] border-accent space-y-1 ${i % 2 === 0 ? 'messy-sm' : 'messy-sm-alt'}`}
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                <item.icon className="w-4 h-4 text-accent" />
-                <span className="text-foreground font-bold">{item.role}</span>
-                <span className="text-primary">@</span>
-                <span className="text-highlight">{item.org}</span>
+
+          {/* Single Carousel */}
+          <div className="relative group/carousel">
+            <div className="overflow-hidden rounded-md border-2 border-foreground" ref={emblaRef}>
+              <div className="flex">
+                {leadership.map((item, i) => (
+                  <div key={i} className="flex-[0_0_100%] min-w-0 relative">
+                    <img
+                      src={item.image}
+                      alt={`${item.role} @ ${item.org}`}
+                      className="w-full h-48 md:h-64 object-cover"
+                      loading="lazy"
+                    />
+                    {/* Overlay with role info */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-foreground/70 flex flex-col justify-between p-4">
+                      <div className="flex items-center gap-2">
+                        <item.icon className="w-4 h-4 text-accent" />
+                        <span className="text-background font-bold text-xs md:text-sm">{item.org}</span>
+                      </div>
+                      <div className="space-y-1">
+                        <div className="text-background font-bold text-sm md:text-lg">{item.role}</div>
+                        <div className="text-background/80 text-xs md:text-sm">{item.description}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className="text-foreground/80 text-sm">{item.description}</div>
-              {item.images && item.images.length > 0 && (
-                <ImageCarousel images={item.images} />
-              )}
-            </motion.div>
-          ))}
+            </div>
+
+            {/* Nav arrows */}
+            <button
+              onClick={scrollPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-foreground/80 text-background rounded-full p-1.5 opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              onClick={scrollNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-foreground/80 text-background rounded-full p-1.5 opacity-0 group-hover/carousel:opacity-100 transition-opacity"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
+            {/* Dots */}
+            <div className="flex justify-center gap-1.5 mt-3">
+              {leadership.map((_, i) => (
+                <div
+                  key={i}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    i === selectedIndex ? "bg-accent" : "bg-muted-foreground/40"
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </WindowFrame>
     </motion.section>

@@ -26,7 +26,7 @@ const BlogSection = () => {
           </Link>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           {blogPosts.map((post, i) => (
             <Link key={post.slug} to={`/blog/${post.slug}`}>
               <motion.article

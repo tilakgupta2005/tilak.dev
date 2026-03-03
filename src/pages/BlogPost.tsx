@@ -13,7 +13,7 @@ const BlogPost = () => {
   if (!post) return <NotFound />;
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background" style={{ backgroundImage: 'none' }}>
       <Navbar />
       <main className="max-w-3xl mx-auto px-4 md:px-8 py-16">
         <motion.div

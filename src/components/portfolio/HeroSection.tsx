@@ -56,10 +56,10 @@ const HeroSection = () => {
             Get in touch
           </a>
           <a
-            href="/resume.pdf"
-            download
+            href="https://drive.google.com/your-resume-link"
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg messy-sm-alt">
-
             <Download className="w-5 h-5" />
             Download CV
           </a>

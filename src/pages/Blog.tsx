@@ -39,7 +39,7 @@ const Blog = () => {
                   style={{ boxShadow: '3px 3px 0px 0px hsl(var(--foreground))' }}
                 >
                   {/* Thumbnail */}
-                  <div className="w-full md:w-72 h-48 md:h-auto shrink-0 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-foreground">
+                  <div className="w-full md:w-56 h-36 md:h-auto shrink-0 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-foreground">
                     <img
                       src={post.thumbnail}
                       alt={post.title}
@@ -48,7 +48,7 @@ const Blog = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 flex flex-col justify-center space-y-3 flex-1">
+                  <div className="p-4 flex flex-col justify-center space-y-2 flex-1">
                     <div className="flex items-center gap-3">
                       {post.tags.map((tag) => (
                         <span

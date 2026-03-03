@@ -26,9 +26,9 @@ const BlogSection = () => {
           </Link>
         </div>
 
-        <div className="space-y-10">
+        <div className="flex flex-col gap-8">
           {blogPosts.map((post, i) => (
-            <Link key={post.slug} to={`/blog/${post.slug}`}>
+            <Link key={post.slug} to={`/blog/${post.slug}`} className="block">
               <motion.article
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}

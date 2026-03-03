@@ -1,6 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
+import { useEffect } from "react";
 import Navbar from "@/components/portfolio/Navbar";
 import Footer from "@/components/portfolio/Footer";
 import { getBlogPostBySlug } from "@/data/blogData";
@@ -9,6 +10,13 @@ import NotFound from "./NotFound";
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
+
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | Tilak's Blog`;
+      document.querySelector('meta[name="description"]')?.setAttribute("content", post.shortDescription);
+    }
+  }, [post]);
 
   if (!post) return <NotFound />;
 
@@ -36,6 +44,7 @@ const BlogPost = () => {
             <img
               src={post.thumbnail}
               alt={post.title}
+              loading="lazy"
               className="w-full h-56 md:h-80 object-cover"
             />
           </div>

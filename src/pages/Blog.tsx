@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import Navbar from "@/components/portfolio/Navbar";
 import Footer from "@/components/portfolio/Footer";
@@ -7,6 +8,11 @@ import { getSortedBlogPosts } from "@/data/blogData";
 
 const Blog = () => {
   const posts = getSortedBlogPosts();
+
+  useEffect(() => {
+    document.title = "Blog | Tilak - Full-Stack Developer";
+    document.querySelector('meta[name="description"]')?.setAttribute("content", "Read Tilak's blog posts about TypeScript, Rust, UI design, and modern web development.");
+  }, []);
 
   return (
     <div className="min-h-screen bg-background" style={{ backgroundImage: 'none' }}>
@@ -43,6 +49,7 @@ const Blog = () => {
                     <img
                       src={post.thumbnail}
                       alt={post.title}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

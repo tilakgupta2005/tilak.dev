@@ -11,28 +11,28 @@ const leadership = [
     org: "Corporate Crew",
     description: "Led and coordinated campus placement drives impacting 1300+ students.",
     icon: Users,
-    image: "/placeholder.svg",
+    image: "https://i.ibb.co/ZRYjNFwL/IMG-20251222-WA0047.jpg",
   },
   {
     role: "Microsoft Learn Student Ambassador",
     org: "MLSA",
     description: "Contributed to technical learning initiatives and community programs.",
     icon: Award,
-    image: "/placeholder.svg",
+    image: "https://i.ibb.co/WvKJ1D1V/Whats-App-Image-2026-03-03-at-11-13-45-PM.jpg",
   },
   {
     role: "Digital Lead",
     org: "GDG On Campus",
     description: "Created promotional creatives and edited videos for technical events and community activities.",
     icon: Users,
-    image: "/placeholder.svg",
+    image: "https://i.ibb.co/zWCjCQm1/IMG-9275.jpg",
   },
   {
     role: "Organizing Team",
     org: "Fiesta 2025",
     description: "Organized BGMI tournament during college fest and managed live stream operations.",
     icon: Gamepad2,
-    image: "/placeholder.svg",
+    image: "https://i.ibb.co/cKfs2Pz9/Whats-App-Image-2026-03-03-at-11-10-09-PM.jpg",
   },
 ];
 

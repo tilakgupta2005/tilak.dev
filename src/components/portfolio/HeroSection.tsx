@@ -56,7 +56,7 @@ const HeroSection = () => {
             Get in touch
           </a>
           <a
-            href="https://drive.google.com/your-resume-link"
+            href="https://drive.google.com/uc?export=download&id=17KaIXHQU0TStCbUYS2roD7fgELYhO5TA"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-secondary text-secondary-foreground rounded-lg text-lg messy-sm-alt">

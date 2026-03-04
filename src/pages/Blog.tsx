@@ -41,7 +41,7 @@ const Blog = () => {
             blog<span className="text-primary">.</span>
           </h1>
           <p className="font-mono text-sm text-muted-foreground">
-            {posts.length} posts — page {safePage} of {totalPages}
+            // Sharing thoughts.
           </p>
         </motion.div>
 

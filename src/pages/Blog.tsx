@@ -1,19 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
+import { Calendar, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/portfolio/Navbar";
 import Footer from "@/components/portfolio/Footer";
 import { getSortedBlogPosts } from "@/data/blogData";
 import ContactSection from "@/components/portfolio/ContactSection";
 
+const POSTS_PER_PAGE = 10;
+
 const Blog = () => {
   const posts = getSortedBlogPosts();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Math.max(1, Number(searchParams.get("page") || 1));
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+  const safePage = Math.min(currentPage, totalPages || 1);
+  const paginatedPosts = posts.slice((safePage - 1) * POSTS_PER_PAGE, safePage * POSTS_PER_PAGE);
 
   useEffect(() => {
     document.title = "Blog | Tilak - Full-Stack Developer";
     document.querySelector('meta[name="description"]')?.setAttribute("content", "Read Tilak's blog posts about TypeScript, Rust, UI design, and modern web development.");
-  }, []);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [safePage]);
+
+  const goToPage = (page: number) => {
+    setSearchParams(page === 1 ? {} : { page: String(page) });
+  };
 
   return (
     <div className="min-h-screen bg-background" style={{ backgroundImage: 'none' }}>
@@ -29,12 +41,12 @@ const Blog = () => {
             blog<span className="text-primary">.</span>
           </h1>
           <p className="font-mono text-sm text-muted-foreground">
-            {posts.length} posts — latest first
+            {posts.length} posts — page {safePage} of {totalPages}
           </p>
         </motion.div>
 
         <div className="space-y-6">
-          {posts.map((post, i) => (
+          {paginatedPosts.map((post, i) => (
             <motion.div
               key={post.slug}
               initial={{ opacity: 0, y: 20 }}
@@ -45,7 +57,6 @@ const Blog = () => {
                 <article className="flex flex-col md:flex-row bg-card border-2 border-foreground rounded-lg overflow-hidden hover:translate-x-1 hover:-translate-y-1 transition-all duration-300"
                   style={{ boxShadow: '3px 3px 0px 0px hsl(var(--foreground))' }}
                 >
-                  {/* Thumbnail */}
                   <div className="w-full md:w-48 h-32 md:h-auto shrink-0 overflow-hidden border-b-2 md:border-b-0 md:border-r-2 border-foreground">
                     <img
                       src={post.thumbnail}
@@ -54,15 +65,10 @@ const Blog = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-
-                  {/* Content */}
                   <div className="p-3 flex flex-col justify-center space-y-1.5 flex-1">
                     <div className="flex items-center gap-3">
                       {post.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-0.5 rounded text-xs bg-accent/90 text-accent-foreground font-mono font-bold border border-foreground"
-                        >
+                        <span key={tag} className="px-2 py-0.5 rounded text-xs bg-accent/90 text-accent-foreground font-mono font-bold border border-foreground">
                           {tag}
                         </span>
                       ))}
@@ -71,13 +77,10 @@ const Blog = () => {
                         {post.date}
                       </span>
                     </div>
-
                     <h2 className="text-xl md:text-2xl font-bold tracking-tight group-hover:text-primary transition-colors">
                       {post.title}
                     </h2>
-
                     <p className="text-muted-foreground text-sm">{post.shortDescription}</p>
-
                     <span className="font-mono text-sm text-primary flex items-center gap-1">
                       Read Article <ArrowRight className="w-3 h-3" />
                     </span>
@@ -87,6 +90,35 @@ const Blog = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex items-center justify-center gap-2 mt-12 font-mono text-sm">
+            <button
+              onClick={() => goToPage(safePage - 1)}
+              disabled={safePage <= 1}
+              className="btn-brutal inline-flex items-center gap-1 px-3 py-2 bg-secondary text-secondary-foreground rounded-lg disabled:opacity-40 disabled:pointer-events-none"
+            >
+              <ChevronLeft className="w-4 h-4" /> Prev
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => goToPage(page)}
+                className={`btn-brutal px-3 py-2 rounded-lg ${page === safePage ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground'}`}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              onClick={() => goToPage(safePage + 1)}
+              disabled={safePage >= totalPages}
+              className="btn-brutal inline-flex items-center gap-1 px-3 py-2 bg-secondary text-secondary-foreground rounded-lg disabled:opacity-40 disabled:pointer-events-none"
+            >
+              Next <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </main>
       <section className="bg-secondary py-16 mt-8 pb-0" style={{
         backgroundImage: 'linear-gradient(hsl(var(--secondary-foreground) / 0.08) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--secondary-foreground) / 0.08) 1px, transparent 1px)',

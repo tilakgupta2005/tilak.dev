@@ -6,6 +6,7 @@ import Navbar from "@/components/portfolio/Navbar";
 import Footer from "@/components/portfolio/Footer";
 import { getBlogPostBySlug } from "@/data/blogData";
 import NotFound from "./NotFound";
+import ContactSection from "@/components/portfolio/ContactSection";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -110,6 +111,9 @@ const BlogPost = () => {
             </Link>
           </div>
         </motion.div>
+        <div className="mt-16">
+          <ContactSection />
+        </div>
       </main>
       <Footer />
     </div>

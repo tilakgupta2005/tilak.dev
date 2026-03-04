@@ -5,6 +5,7 @@ import { Calendar, ArrowRight, ExternalLink } from "lucide-react";
 import Navbar from "@/components/portfolio/Navbar";
 import Footer from "@/components/portfolio/Footer";
 import { getSortedBlogPosts } from "@/data/blogData";
+import ContactSection from "@/components/portfolio/ContactSection";
 
 const Blog = () => {
   const posts = getSortedBlogPosts();
@@ -85,6 +86,9 @@ const Blog = () => {
               </Link>
             </motion.div>
           ))}
+        </div>
+        <div className="mt-16">
+          <ContactSection />
         </div>
       </main>
       <Footer />

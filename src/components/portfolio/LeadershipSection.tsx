@@ -77,7 +77,7 @@ const LeadershipSection = () => {
                       loading="lazy"
                     />
                     {/* Overlay with role info */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-foreground/70 flex flex-col justify-between p-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-transparent to-transparent flex flex-col justify-between p-4">
                       <div className="flex items-center gap-2">
                         <item.icon className="w-4 h-4 text-accent" />
                         <span className="text-background font-bold text-xs md:text-sm">{item.org}</span>

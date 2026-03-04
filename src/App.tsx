@@ -30,6 +30,9 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/tilak.dev" element={<Index />} />
+            <Route path="/tilak.dev/blog" element={<Blog />} />
+            <Route path="/tilak.dev/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

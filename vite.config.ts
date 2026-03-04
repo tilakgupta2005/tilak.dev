@@ -4,9 +4,6 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-base: mode === "production"
-  ? "/tilak.dev/"
-  : "/",
 
   server: {
     host: true,

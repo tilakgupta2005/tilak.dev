@@ -10,6 +10,13 @@ export interface BlogPost {
   tags: string[];
 }
 
+// Code blocks: ```lang\ncode\n```
+// Links: [text](url)
+// Headings: ## Title or ### Subtitle
+// Bold: **text**
+// Inline code: `code`
+// Lists: - item or 1. item
+
 const blogPosts: BlogPost[] = [
   {
     slug: "why-i-switched-from-rest-to-trpc",

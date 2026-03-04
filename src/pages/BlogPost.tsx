@@ -7,6 +7,7 @@ import Footer from "@/components/portfolio/Footer";
 import { getBlogPostBySlug } from "@/data/blogData";
 import NotFound from "./NotFound";
 import ContactSection from "@/components/portfolio/ContactSection";
+import BlogContent from "@/components/portfolio/BlogContent";
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -86,19 +87,7 @@ const BlogPost = () => {
           </div>
 
           {/* Full content */}
-          <article className="prose prose-lg max-w-none">
-            {post.fullDescription.split("\n\n").map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-foreground/90 leading-relaxed mb-4"
-                dangerouslySetInnerHTML={{
-                  __html: paragraph
-                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
-                    .replace(/`(.*?)`/g, '<code class="bg-muted px-1.5 py-0.5 rounded text-sm font-mono">$1</code>'),
-                }}
-              />
-            ))}
-          </article>
+          <BlogContent content={post.fullDescription} />
 
           {/* Back to blog */}
           <div className="pt-8 border-t-2 border-border">

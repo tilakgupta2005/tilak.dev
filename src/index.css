@@ -148,7 +148,12 @@
 
   .messy {
     @apply transition-transform duration-300 ease-out;
-    transform: rotate(-1.5deg);
+    transform: rotate(0deg);
+  }
+  @media (min-width: 768px) {
+    .messy {
+      transform: rotate(-1.5deg);
+    }
   }
   .messy:hover {
     transform: rotate(0deg) !important;

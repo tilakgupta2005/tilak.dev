@@ -17,7 +17,7 @@ const Index = () => {
         <div className="max-w-4xl mx-auto px-4 md:px-8">
           <HeroSection />
         </div>
-        <section id="stack" className="bg-card/80 backdrop-blur-sm py-16 mt-16" style={{ backgroundImage: 'none' }}>
+        <section id="stack" className="bg-card/80 backdrop-blur-sm py-16 mt-16 overflow-hidden" style={{ backgroundImage: 'none' }}>
           <div className="max-w-4xl mx-auto px-4 md:px-8">
             <TechStack />
           </div>

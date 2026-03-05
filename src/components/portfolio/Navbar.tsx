@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -7,16 +7,60 @@ const links = [
   { label: "stack", href: "/#stack", isRoute: false },
   { label: "projects", href: "/#projects", isRoute: false },
   { label: "blog", href: "/blog", isRoute: true },
-  { label: "contact", href: "/#contact", isRoute: false },
+  { label: "contact", href: "#contact", isRoute: false, isAnchor: true },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (l: typeof links[0], closeMobile?: boolean) => {
+    if (closeMobile) setOpen(false);
+
+    // Home: if already on index, scroll to top
+    if (l.label === "home" && location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    // Anchor links (contact): scroll on current page
+    if (l.isAnchor) {
+      const el = document.querySelector(l.href);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
+  };
 
   const NavItem = ({ l, className, onClick }: { l: typeof links[0]; className: string; onClick?: () => void }) => {
+    if (l.isAnchor) {
+      return (
+        <button
+          className={className}
+          onClick={() => {
+            handleNavClick(l, true);
+            onClick?.();
+          }}
+        >
+          .{l.label}()
+        </button>
+      );
+    }
     if (l.isRoute) {
       return (
-        <Link to={l.href} className={className} onClick={onClick}>
+        <Link
+          to={l.href}
+          className={className}
+          onClick={(e) => {
+            if (l.label === "home" && location.pathname === "/") {
+              e.preventDefault();
+              handleNavClick(l, true);
+            }
+            onClick?.();
+          }}
+        >
           .{l.label}()
         </Link>
       );

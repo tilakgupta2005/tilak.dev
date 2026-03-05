@@ -45,9 +45,9 @@ const LaptopStickers = () => {
     >
       {/* Title */}
       <div className="text-center space-y-2">
-        <h2 className="text-4xl md:text-5xl font-black text-foreground inline-flex items-center gap-3 justify-center">
+        <h2 className="text-3xl md:text-5xl font-black text-foreground inline-flex items-center gap-3 justify-center flex-wrap">
           <span>📋</span> Laptop{" "}
-          <span className="bg-primary text-primary-foreground px-3 py-1 inline-block rotate-[-1deg] border-2 border-foreground shadow-[3px_3px_0px_hsl(var(--foreground))]">Stickers</span>
+          <span className="bg-primary text-primary-foreground px-3 py-1 inline-block rotate-[-1deg] md:rotate-[-1deg] border-2 border-foreground shadow-[3px_3px_0px_hsl(var(--foreground))]">Stickers</span>
         </h2>
         <p className="font-mono text-sm text-muted-foreground">{"// where I've been & what I've done"}</p>
       </div>
@@ -62,8 +62,8 @@ const LaptopStickers = () => {
       </div>
 
       {/* Laptop Frame */}
-      <div className="relative mx-auto max-w-3xl">
-        <div className="border-[6px] border-foreground rounded-2xl overflow-hidden">
+        <div className="relative mx-auto max-w-3xl overflow-hidden">
+          <div className="border-[6px] border-foreground rounded-2xl overflow-hidden mx-1 md:mx-0">
           <div className="bg-foreground/90 flex justify-center py-2">
             <div className="w-16 h-2 rounded-full bg-muted-foreground/50" />
           </div>

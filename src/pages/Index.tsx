@@ -22,7 +22,7 @@ const Index = () => {
             <TechStack />
           </div>
         </section>
-        <section id="experience" className="bg-card/80 backdrop-blur-sm py-16" style={{ backgroundImage: 'none' }}>
+        <section id="experience" className="bg-card/80 backdrop-blur-sm py-16 overflow-hidden" style={{ backgroundImage: 'none' }}>
           <div className="max-w-4xl mx-auto px-4 md:px-8">
             <LaptopStickers />
           </div>

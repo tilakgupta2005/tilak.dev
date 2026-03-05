@@ -18,6 +18,67 @@ export interface BlogPost {
 // Lists: - item or 1. item
 
 const blogPosts: BlogPost[] = [
+{
+  slug: "how-to-create-an-ats-friendly-resume-with-ai",
+  title: "How to Create an ATS-Friendly Resume Using AI",
+  comment: "// Turn your CV into a powerful job-winning resume.",
+  shortDescription: "A simple system to convert your CV into an ATS-friendly LaTeX resume using AI.",
+  fullDescription: `Creating a strong resume is one of the most important steps when applying for jobs. Instead of designing resumes manually every time, you can use AI to convert your CV into a clean ATS-optimized resume written in LaTeX.
+
+This method keeps your resume structured, professional, and optimized for applicant tracking systems.
+
+## Step 1: Create Your CV
+
+Prepare a **master CV document** containing all your information.
+
+Include sections like:
+
+- Basic Information (name, email, GitHub, LinkedIn)
+- Education
+- Experience
+- Projects
+- Technical Skills
+- Certifications
+- Achievements
+
+
+## Step 2: Generate Resume with AI
+
+Use this prompt with an AI model:
+
+\`\`\`
+Act as a professional resume writer.
+
+Using the CV details provided below and the job description, generate:
+
+1. An ATS-friendly resume
+2. Single-column layout
+3. Clean professional format
+4. No graphics, tables, or icons
+5. Keyword optimization based on job description
+6. Quantified bullet points
+7. Output strictly in LaTeX code
+
+Job Description:
+[Paste job description]
+
+CV Details:
+[Paste your full CV]
+\`\`\`
+
+## Step 3: Compile Using Overleaf
+
+1. Go to [https://www.overleaf.com](https://www.overleaf.com)  
+2. Create a new blank project  
+3. Paste the LaTeX code into **main.tex**  
+4. Click **Recompile** and download the PDF
+
+Using this workflow, you can quickly generate tailored resumes for different roles while maintaining a professional format.`,
+  thumbnail: "https://static.resumegiants.com/wp-content/uploads/sites/25/2024/12/12121143/2_choose_template_resumegiants-1040x665.webp",
+  date: "2026-03-02",
+  readTime: "5 min read",
+  tags: ["Career", "AI", "Resume"],
+},
   {
     slug: "why-i-switched-from-rest-to-trpc",
     title: "Why I Switched from REST to tRPC",
@@ -124,8 +185,8 @@ The performance difference compared to my old Node.js scripts was staggering. Wh
 2. Embrace the borrow checker — it's teaching you better patterns
 3. Use \`clap\` for argument parsing — it's the gold standard
 4. Write tests from day one — Rust's built-in test framework is excellent`,
-    thumbnail: "/placeholder.svg",
-    date: "2024-11-28",
+    thumbnail: "https://static.resumegiants.com/wp-content/uploads/sites/25/2024/12/12121143/2_choose_template_resumegiants-1040x665.webp",
+    date: "2026-03-02",
     readTime: "8 min read",
     tags: ["Rust", "CLI"],
   },

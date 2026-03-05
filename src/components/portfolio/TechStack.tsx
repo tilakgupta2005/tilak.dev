@@ -25,14 +25,14 @@ const TechStack = () => {
           </div>
           {stack.map((group) => (
             <div key={group.category} className="pl-4 md:pl-8">
-              <span className="text-primary">{group.category}</span>: [
+              <span className="text-primary font-bold">{group.category}</span>: [
               <div className="pl-4 flex flex-wrap gap-2 py-1">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="tag-pill bg-muted text-foreground text-xs"
+                    className="text-blue-500 text-foreground text-sm font-bold"
                   >
-                    "{item}"
+                    "{item}",
                   </span>
                 ))}
               </div>

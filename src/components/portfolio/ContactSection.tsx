@@ -26,13 +26,13 @@ const ContactSection = () => {
     try {
       await emailjs.send(
         "service_6y2h921",
-        "template_1jxr8pe",
+        "template_rgobxvs",
         {
           user_name: formData.name,
           user_email: formData.email,
           message: formData.message,
         },
-        "vWP7QVr30qpoLNX7g"
+        "J7dGxx3x4VujqCzSO"
       );
 
       alert("Message sent successfully!");

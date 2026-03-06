@@ -19,6 +19,179 @@ export interface BlogPost {
 
 const blogPosts: BlogPost[] = [
 {
+  slug: "leetcode-runtime-0ms-hack-explained",
+  title: "The LeetCode 0ms Runtime Hack (And How It Works)",
+  comment: "// Sometimes the leaderboard lies.",
+  shortDescription: "A trick that can display 0 ms runtime on LeetCode by modifying the runtime output file.",
+  fullDescription: `While browsing LeetCode leaderboards you may occasionally notice submissions showing **0 ms runtime**.  
+At first it looks like an incredibly optimized solution, but sometimes it is caused by a small trick that changes how the runtime value is displayed.
+
+⚠️ This does **not actually make your algorithm faster**.  
+It simply manipulates the runtime output that the platform shows.
+
+---
+
+## Where to Paste the Code
+
+The snippet must be placed **outside your main function or Solution class**, usually at the **top of the file**.
+
+Example (Java):
+
+\`\`\`java
+class Solution {
+
+    static {
+        Runtime.getRuntime().gc();
+        Runtime.getRuntime().addShutdownHook(
+            new Thread(() -> {
+                try (FileWriter f = new FileWriter("display_runtime.txt")) {
+                    f.write("0");
+                } catch (Exception e) {}
+            })
+        );
+    }
+
+    public int[] twoSum(int[] nums, int target) {
+        // your normal solution
+    }
+}
+\`\`\`
+
+The static block executes **when the program starts**, and the shutdown hook runs **after the program finishes**.
+
+---
+
+## Java Implementation
+
+\`\`\`java
+static {
+    Runtime.getRuntime().gc();
+    Runtime.getRuntime().addShutdownHook(
+        new Thread(() -> {
+            try (FileWriter f = new FileWriter("display_runtime.txt")) {
+                f.write("0");
+            } catch (Exception e) {}
+        })
+    );
+}
+\`\`\`
+
+---
+
+## Python Version
+
+Place this at the **top of your submission file**.
+
+\`\`\`python
+import atexit
+
+def hack():
+    try:
+        with open("display_runtime.txt", "w") as f:
+            f.write("0")
+    except:
+        pass
+
+atexit.register(hack)
+\`\`\`
+
+---
+
+## C++ Version
+
+\`\`\`cpp
+#include <fstream>
+#include <cstdlib>
+
+void hack() {
+    std::ofstream f("display_runtime.txt");
+    if (f.is_open()) {
+        f << "0";
+    }
+}
+
+int main() {
+    atexit(hack);
+
+    // your normal solution
+}
+\`\`\`
+
+---
+
+## JavaScript (Node.js)
+
+\`\`\`javascript
+const fs = require("fs");
+
+process.on("exit", () => {
+  try {
+    fs.writeFileSync("display_runtime.txt", "0");
+  } catch {}
+});
+\`\`\`
+
+---
+
+## Go Version
+
+\`\`\`go
+package main
+
+import "os"
+
+func hack() {
+    os.WriteFile("display_runtime.txt", []byte("0"), 0644)
+}
+
+func main() {
+    defer hack()
+
+    // your solution code
+}
+\`\`\`
+
+---
+
+## Rust Version
+
+\`\`\`rust
+use std::fs::File;
+use std::io::Write;
+
+fn hack() {
+    if let Ok(mut f) = File::create("display_runtime.txt") {
+        let _ = f.write_all(b"0");
+    }
+}
+
+fn main() {
+    hack();
+}
+\`\`\`
+
+---
+
+## Important Note
+
+This trick **does not improve algorithm performance**.  
+It only modifies the displayed runtime value.
+
+Real improvements come from:
+
+- better algorithms
+- lower time complexity
+- optimized data structures
+
+Competitive programming platforms often patch tricks like this once they become widely known.
+
+So focus on writing **efficient solutions**, not leaderboard tricks.`,
+  thumbnail: "/placeholder.svg",
+  date: "2026-03-06",
+  readTime: "4 min read",
+  tags: ["LeetCode", "Algorithms", "Competitive Programming"]
+},
+{
   slug: "how-to-create-an-ats-friendly-resume-with-ai",
   title: "How to Create an ATS-Friendly Resume Using AI",
   comment: "// Turn your CV into a powerful job-winning resume.",

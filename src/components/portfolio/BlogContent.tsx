@@ -37,27 +37,50 @@ interface BlogContentProps {
 }
 
 const BlogContent = ({ content }: BlogContentProps) => {
-  const blocks = content.split("\n\n");
+  // Extract code blocks first, then split remaining text by double newlines
+  const segments: { type: 'code' | 'text'; lang?: string; value: string }[] = [];
+  const codeBlockRegex = /```(\w*)\n([\s\S]*?)```/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = codeBlockRegex.exec(content)) !== null) {
+    if (match.index > lastIndex) {
+      segments.push({ type: 'text', value: content.slice(lastIndex, match.index) });
+    }
+    segments.push({ type: 'code', lang: match[1], value: match[2].trim() });
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < content.length) {
+    segments.push({ type: 'text', value: content.slice(lastIndex) });
+  }
+
+  const blocks: { type: string; lang?: string; value: string }[] = [];
+  segments.forEach((seg) => {
+    if (seg.type === 'code') {
+      blocks.push(seg);
+    } else {
+      seg.value.split("\n\n").forEach((b) => {
+        const trimmed = b.trim();
+        if (trimmed) blocks.push({ type: 'text', value: trimmed });
+      });
+    }
+  });
 
   return (
     <article className="prose prose-lg max-w-none space-y-4">
       {blocks.map((block, i) => {
-        // Code block: ```lang\ncode\n```
-        const codeBlockMatch = block.match(/^```(\w*)\n([\s\S]*?)```$/);
-        if (codeBlockMatch) {
-          const lang = codeBlockMatch[1];
-          const code = codeBlockMatch[2].trim();
+        if (block.type === 'code') {
           return (
             <div key={i} className="relative group">
-              {lang && (
+              {block.lang && (
                 <span className="absolute top-2 left-3 text-xs font-mono text-muted-foreground/60">
-                  {lang}
+                  {block.lang}
                 </span>
               )}
-              <CopyButton text={code} />
+              <CopyButton text={block.value} />
               <pre className="bg-foreground/5 border-2 border-border rounded-lg p-4 pt-8 overflow-x-auto">
                 <code className="text-sm font-mono text-foreground/90 whitespace-pre">
-                  {code}
+                  {block.value}
                 </code>
               </pre>
             </div>
@@ -65,27 +88,30 @@ const BlogContent = ({ content }: BlogContentProps) => {
         }
 
         // Heading: ## or ###
-        if (block.startsWith("### ")) {
+        if (block.value.startsWith("### ")) {
           return (
             <h3
               key={i}
               className="text-lg font-bold tracking-tight text-foreground mt-6"
-              dangerouslySetInnerHTML={{ __html: renderInlineFormatting(block.slice(4)) }}
+              dangerouslySetInnerHTML={{ __html: renderInlineFormatting(block.value.slice(4)) }}
             />
           );
         }
-        if (block.startsWith("## ")) {
+        if (block.value.startsWith("## ")) {
           return (
             <h2
               key={i}
               className="text-xl font-black tracking-tight text-foreground mt-8"
-              dangerouslySetInnerHTML={{ __html: renderInlineFormatting(block.slice(3)) }}
+              dangerouslySetInnerHTML={{ __html: renderInlineFormatting(block.value.slice(3)) }}
             />
           );
         }
 
+        // Skip horizontal rules
+        if (block.value === "---") return null;
+
         // List items (- item)
-        const lines = block.split("\n");
+        const lines = block.value.split("\n");
         if (lines.every((l) => l.startsWith("- ") || l.trim() === "")) {
           return (
             <ul key={i} className="space-y-1.5 list-none pl-0">
@@ -139,7 +165,7 @@ const BlogContent = ({ content }: BlogContentProps) => {
             key={i}
             className="text-foreground/90 leading-relaxed"
             dangerouslySetInnerHTML={{
-              __html: renderInlineFormatting(block),
+              __html: renderInlineFormatting(block.value),
             }}
           />
         );

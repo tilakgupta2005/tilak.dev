@@ -186,7 +186,7 @@ Real improvements come from:
 Competitive programming platforms often patch tricks like this once they become widely known.
 
 So focus on writing **efficient solutions**, not leaderboard tricks.`,
-  thumbnail: "/placeholder.svg",
+  thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLaIlgU4Swan4qRu1Y8vfVi7I0EnLkU8Ixdg&s",
   date: "2026-03-06",
   readTime: "4 min read",
   tags: ["LeetCode", "Algorithms", "Competitive Programming"]

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Send, Twitter, Youtube, Instagram, MessageCircle } from "lucide-react";
 import WindowFrame from "./WindowFrame";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com/tilakgupta2005" },
@@ -16,11 +17,32 @@ const socials = [
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire up form submission
-    alert("Message sent! (demo)");
-    setFormData({ name: "", email: "", message: "" });
+    setSending(true);
+
+    try {
+      await emailjs.send(
+        "service_6y2h921",
+        "template_1jxr8pe",
+        {
+          user_name: formData.name,
+          user_email: formData.email,
+          message: formData.message,
+        },
+        "vWP7QVr30qpoLNX7g"
+      );
+
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      alert("Failed to send message");
+      console.error(error);
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -75,10 +97,11 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="btn-brutal inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-sans font-bold"
+              disabled={sending}
+              className="btn-brutal inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-lg font-sans font-bold disabled:opacity-50"
             >
               <Send className="w-4 h-4" />
-              Send message
+              {sending ? "Sending..." : "Send message"}
             </button>
           </form>
         </WindowFrame>

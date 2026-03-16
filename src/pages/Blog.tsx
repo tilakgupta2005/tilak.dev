@@ -66,13 +66,13 @@ const Blog = () => {
                     />
                   </div>
                   <div className="p-3 flex flex-col justify-center space-y-1.5 flex-1">
-                    <div className="flex items-center gap-3">
-                      {post.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 rounded text-xs bg-accent/90 text-accent-foreground font-mono font-bold border border-foreground">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      {post.tags.slice(0, 2).map((tag) => (
+                        <span key={tag} className="px-2 py-0.5 rounded text-xs bg-accent/90 text-accent-foreground font-mono font-bold border border-foreground whitespace-nowrap">
                           {tag}
                         </span>
                       ))}
-                      <span className="font-mono text-xs text-muted-foreground flex items-center gap-1">
+                      <span className="font-mono text-xs text-muted-foreground flex items-center gap-1 whitespace-nowrap ml-auto">
                         <Calendar className="w-3 h-3" />
                         {post.date}
                       </span>

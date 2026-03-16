@@ -14,7 +14,7 @@ const HeroSection = () => {
         <div className="flex items-center gap-2">
           <span className="tag-pill bg-primary text-primary-foreground messy-sm">
             <span className="w-2 h-2 rounded-full bg-primary-foreground mr-2 animate-blink" />
-            status: shipping_fast
+            status: quick_turnaround
           </span>
           <span className="tag-pill bg-highlight text-highlight-foreground messy-sm-alt">
             open to work
@@ -39,9 +39,13 @@ const HeroSection = () => {
           <span className="bg-highlight text-highlight-foreground px-2 py-0.5 rounded font-bold">
             fast
           </span>
-          , accessible, and{" "}
+          , {" "}
+          <span className="bg-blue-500 text-accent-foreground px-2 py-0.5 rounded font-bold">
+            accessible
+          </span>
+          , and{" "}
           <span className="bg-accent text-accent-foreground px-2 py-0.5 rounded font-bold">
-            beautiful
+            elegant
           </span>
           .
         </p>

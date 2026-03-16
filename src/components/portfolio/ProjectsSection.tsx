@@ -65,7 +65,7 @@ const projects: Project[] = [
     timeline: "Nov 2025",
     problem: "Developers often struggle to come up with fresh project ideas and then spend time setting up boilerplate and deployment pipelines.",
     solution: "Built an automation system using Gemini AI and prompt engineering that generates personalized project ideas, creates HTML pages, and deploys directly to GitHub with CI/CD-style automation and email notifications — zero manual intervention.",
-    github: "https://github.com/tilakgupta2005/project_generator",
+    github: null, //"https://github.com/tilakgupta2005/project_generator",
     link: null,
   },
   {
@@ -79,7 +79,7 @@ const projects: Project[] = [
   timeline: "Oct 2025",
   problem: "Music producers and developers often need to isolate vocals and instruments from songs for remixing, analysis, or dataset creation, but manual separation is difficult and computationally expensive.",
   solution: "Built an AI-powered music stem separation tool using Deezer's Spleeter that isolates vocals, drums, bass, and accompaniment tracks from songs. Integrated Librosa and Matplotlib for audio analysis and developed a Streamlit-based web interface for easy file upload, processing, and visualization while keeping system resource usage minimal.",
-  github: "https://github.com/tilakgupta2005/Song_Splitter",
+  github: null, //"https://github.com/tilakgupta2005/Song_Splitter",
   link: "https://song-splitter.streamlit.app/",
 },
     {
@@ -94,7 +94,7 @@ const projects: Project[] = [
   timeline: "Sep 2025",
   problem: "Many farmers rely on traditional experience or local advice instead of data-driven insights, which can lead to lower crop yields, inefficient irrigation, and improper fertilizer use.",
   solution: "Developed a Smart Crop Advisory System that analyzes agricultural data such as soil properties, weather conditions, and crop information to generate personalized farming recommendations. The platform helps farmers choose suitable crops, optimize irrigation schedules, and improve overall productivity using AI-driven insights.",
-  github: "https://github.com/Sonu-kumar-singh-28/KRISHI-SAHAYAK",
+  github: null, //"https://github.com/Sonu-kumar-singh-28/KRISHI-SAHAYAK",
 },
   {
     name: "AI Voice Assistant",
@@ -121,7 +121,7 @@ const projects: Project[] = [
     timeline: "Jun 2025",
     problem: "Traditional keyboard/mouse controls limit accessibility and immersion in Minecraft gameplay.",
     solution: "Developed a voice-controlled gameplay system with multilingual support (English, Hindi, Hinglish). Delivered both a standalone Java application and a Fabric-based Minecraft mod for speech-driven player actions.",
-    github: "https://github.com/tilakgupta2005/SpeechControlsGame",
+    github: null,//"https://github.com/tilakgupta2005/SpeechControlsGame",
     link: "https://www.curseforge.com/minecraft/mc-mods/speech-controls-game",
   },
   {

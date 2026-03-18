@@ -108,7 +108,7 @@ const ContactSection = () => {
 
         {/* Socials */}
         <div className="space-y-4">
-          <div className="window-border-sm bg-primary/20 border-primary p-6 space-y-4 messy-alt">
+          <div className="window-border-sm bg-primary/30 border-primary p-6 space-y-4 messy-alt">
             <h3 className="font-bold text-lg tracking-tight text-secondary-foreground">Find me elsewhere</h3>
             <div className="grid grid-cols-2 gap-3">
               {socials.map((social, i) => (
@@ -128,12 +128,12 @@ const ContactSection = () => {
 
           <div className="window-border-sm bg-terminal border-secondary-foreground p-6 messy-sm-alt">
             <div className="font-mono text-sm space-y-2">
-              <div className="text-terminal-foreground/60">{"// availability"}</div>
+              <div className="text-terminal-foreground">{"// availability"}</div>
               <div className="flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
                 <span className="font-bold text-secondary-foreground">Currently available for freelance, full-time, part-time, contract roles</span>
               </div>
-              <p className="text-terminal-foreground/70 text-xs">
+              <p className="text-terminal-foreground text-xs">
                 Response time: usually within 24h
               </p>
             </div>

@@ -54,7 +54,7 @@ const HeroSection = () => {
         <div className="flex flex-wrap gap-4 pt-4">
           <a
             href="#contact"
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg messy-sm">
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-blue-400 text-accent-foreground rounded-lg text-lg messy-sm">
 
             <Mail className="w-5 h-5" />
             Get in touch
@@ -63,7 +63,7 @@ const HeroSection = () => {
             href="https://drive.google.com/uc?export=download&id=17KaIXHQU0TStCbUYS2roD7fgELYhO5TA"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-blue-500 text-accent-foreground rounded-lg text-lg messy-sm-alt">
+            className="btn-brutal inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg text-lg messy-sm-alt">
             <Download className="w-5 h-5" />
             Download CV
           </a>
